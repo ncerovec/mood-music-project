@@ -4,7 +4,7 @@ $(document).ready(function()
 
     for (var category in categories)
     {
-        $('#moods').append($('<option>', 
+        $('#themes').append($('<option>', 
         {
             value: category,
             text : category 
@@ -14,7 +14,7 @@ $(document).ready(function()
 
 $(function(ready)
 {
-    $('#moods').change(function(e)
+    $('#themes').change(function(e)
     {
         //alert(this.value);
 

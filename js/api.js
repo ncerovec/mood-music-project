@@ -118,7 +118,9 @@ Api.prototype.populateTable = function(songList)
 		var tdImage = '<td style="vertical-align: middle;"> <a href="'+  song.url +'" target="_blank"> <img src="'+ song.img +'" class="img-rounded" width="60"> </a> '+ (hasLyrics ? btnLyrics : '') +' </td>';
 		var tdPrimary = '<td> <h4>'+ song.name +'</h4> <h5><b>'+ song.artist +'</b></h5> <p> <b>Album:</b> '+ song.album +'</p> </td>';
 		var tdSecondary = '<td> <h6>Rating: '+ song.rating +'</h6> <h6>Duration: '+ secToTime(song.duration) +'</h6> <h6>Release date: '+ strRelease +'</h6> </td>';
-		var tdButton = '<td style="vertical-align: middle;"> <a href="https://justhearit.com/#/search/'+  song.name + ' ' + song.artist +'" target="_blank"> <button class="btn btn-default" type="button"> <i class="fa fa-fw s fa-play"></i> Play </button> </a> </td>';
+		var tdButton = '<td style="vertical-align: middle;"> <a href="https://www.youtube.com/results?search_query='+  song.name + ' ' + song.artist +'" target="_blank"> <button class="btn btn-default" type="button"> <i class="fa fa-fw s fa-play"></i> Play </button> </a> </td>';
+
+		//play music online: www.listube.com, www.justhearit.com
 
     	tr.innerHTML += tdID + tdImage + tdPrimary + tdSecondary + tdButton;
     	tableBody.append(tr);

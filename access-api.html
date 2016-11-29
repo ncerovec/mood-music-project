@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>MusixMatch API Query</title>
+		<title>Theme related music recommendation system</title>
 		<base href="*"> <!-- Cross-Origin Request Blocked - Reason: CORS header ‘Access-Control-Allow-Origin’ -->
 		
 		<!-- CSS STYLESHEET -->
@@ -51,7 +51,7 @@
 					<form class="form-horizontal">
 						<fieldset>
 							<div class="form-group">
-								<div class="col-md-2"> <label class="control-label" for="keywords">Moods: </label> </div>
+								<div class="col-md-2"> <label class="control-label" for="themes">Themes: </label> </div>
 								<div class="col-md-3"> <label class="control-label" for="keywords">Keywords: </label> </div>
 								<div class="col-md-3"> <label class="control-label" for="genres">Genres: </label> </div>
 								<div class="col-md-2"> </div>
@@ -64,8 +64,8 @@
 										<span class="input-group-addon">
 											<i class="fa fa-thumbs-up" aria-hidden="true"></i>
 										</span>
-										<select id="moods" class="form-control">
-											<option value="-1">Select mood</option>
+										<select id="themes" class="form-control">
+											<option value="-1">Select theme</option>
 										</select>
 									</div>
 								</div>
@@ -115,7 +115,7 @@
 		<div class="section" class="animate-bottom">
             <div class="container">
                 <div class="row">
-					<pre class="col-md-10" id="output">API request: </pre>
+					<pre class="col-md-10" id="output">MusixMatch API Query: </pre>
 
 					<fieldset class="col-md-2">
 						<div class="form-group pull-right">
@@ -133,8 +133,6 @@
 		</div>
 
 		<!-- REQUEST END -->
-
-		<!-- <a href="http://www.listube.com" id="lte">listube - free online on-demand music player</a> -->
 
 		<!-- LIST START -->
 
