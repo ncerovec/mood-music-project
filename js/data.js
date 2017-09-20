@@ -1,3 +1,5 @@
+var musixMatchApiKey = '27fd8a413c8f5837346998c3a41c1b2d';
+
 var categories = 
 {
 	happy:["happy", "smile", "money"],

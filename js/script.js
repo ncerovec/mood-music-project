@@ -76,3 +76,23 @@ function generateWords(category, num)
 
     return words;
 }
+
+function formattedDate(date)
+{
+    var dateString = ("0" + date.getUTCDate()).slice(-2) + "." + ("0" + (date.getUTCMonth()+1)).slice(-2) + "." + date.getUTCFullYear();
+    return dateString;
+}
+
+function secToTime(sec)
+{
+    var date = new Date(sec * 1000);
+    var hh = date.getUTCHours();
+    var mm = date.getUTCMinutes();
+    var ss = date.getSeconds();
+
+    if (hh < 10) {hh = "0"+hh;}
+    if (mm < 10) {mm = "0"+mm;}
+    if (ss < 10) {ss = "0"+ss;}
+
+    return  hh+":"+mm+":"+ss;
+}

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Theme music</title>
+		<base href="*"> <!-- Cross-Origin Request Blocked - Reason: CORS header ‘Access-Control-Allow-Origin’ -->
+		<meta charset="utf-8">
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+								
+		<meta name="author" content="Nino Cerovec">
+		<meta name="copyright" content="nino.info">
+		<meta name="keywords" content="music, listen, bored, theme, mood, lyrics, keywords, musix, match, search, find, simple, fast">
+		<meta name="description" content="Music recommendation system based on keywords in song lyrics. Simply search songs by predefined theme/mood categories.">
+
+		<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+		<!-- Favicon -->
+		<link href='img/thememusic-logo.png' rel='icon' type='image/x-icon'/>
+		<link href='img/thememusic-logo.png' rel='shortcut icon' type='image/x-icon'/>
+		
+		<!-- CSS STYLESHEET -->
+		
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="css/style.css">
+
+		<!-- Font-Awesome CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+		<!-- Bootstrap CSS theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Bootstrap optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+		<!-- REMOTE SCRIPTS -->
+		
+		<!-- jQuery JavaScript -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript" crossorigin="anonymous"></script>
+		<!-- <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script> -->
+
+		<!-- Bootstrap JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		
+		<!-- LOCAL SCRIPTS -->
+		<script src="js/data.js"></script>
+		<script src="js/script.js"></script>
+		<script src="js/api.js"></script>
+		<script>
+			var api = new Api();
+
+			//alert("MusixMatch API - test!");
+		</script>
+	</head>
+	<body>
+		
+		<!-- LOADER START --> <div id="loader"></div> <!-- LOADER END -->
+		
+		<!-- FORM START -->
+
+		<div class="section">
+            <div class="container">
+				<div class="row">
+					<img class="img-rounded pull-left" src="img/thememusic-logo.png" width="120px" height="120px" alt="Theme music"/>
+					<h1 class="display-1 pull-left">Theme music <i class="fa fa-music" aria-hidden="true"></i> </h1>
+					<h3 class="pull-right">Lightweight & fun <i class="fa fa-smile-o" aria-hidden="true"></i> </h3>
+				</div>
+				<div class="row">				
+					<h3 class="pull-left"> Mood music <i class="fa fa-heart-o" aria-hidden="true"></i> </h3>
+					<h2 class="pull-right"> <i class="fa fa-headphones" aria-hidden="true"></i> I don't know what to listen anymore! </h2>
+				</div>
+				
+                <div class="row">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<form class="form-horizontal">
+								<fieldset>
+									<div class="form-group">							
+										<div class="col-md-3">
+											<label class="control-label" for="themes">Themes: </label>
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="fa fa-thumbs-up" aria-hidden="true"></i>
+												</span>
+												<select id="themes" class="form-control">
+													<option value="-1">Select theme</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="col-md-3">
+											<label class="control-label" for="keywords">Keywords: </label>
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="fa fa-key" aria-hidden="true"></i>
+												</span>										
+												<input type="text" id="keywords" name="keywords" class="form-control" placeholder="love hate peace" required="true"/>
+											</div>
+										</div>
+										
+										<div class="col-md-3">
+											<label class="control-label" for="genres">Genres: </label>
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="fa fa-music" aria-hidden="true"></i>
+												</span>
+												<select id="genre" class="form-control" disabled="true">
+													<option value="-1">Select genre</option>
+												</select>
+											</div>
+										</div>
+										
+										<div class="col-md-1">
+											<label class="control-label">&nbsp;</label>
+											<button type="button" class="btn btn-default" onclick="api.apiFetchKeywordSongs()">
+												<i class="fa fa-fw s fa-search"></i> Search
+											</button>
+										</div>
+
+										<div class="col-md-2">
+											<label class="checkbox-inline pull-right"> <input id="lyrics" type="checkbox" value="true"> Fetch lyrics </label>
+											<button type="button" class="btn btn-default pull-right" onclick="api.apiFetchTopSongs()">
+												<i class="fa fa-fw s fa-play"></i> Get TOP list
+											</button>
+										</div>
+									</div>		
+								</fieldset>
+							</form>
+					
+							<div class="col-md-12">
+								<small id="formHelp" class="form-text text-muted">
+									Music recommendation system based on keywords in song lyrics.
+									Simply search songs by predefined theme/mood categories.
+									Theme related music recommendation system.
+								</small>
+							</div>					
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- FORM END -->
+		
+		<!-- LIST START -->
+
+		<div id="song-list" class="section">
+			<hr/>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+						
+                        <table id="table-songs" class="table table-hover table-striped">
+                            <tbody>
+                            	<!--
+                                <tr>
+                                    <td>
+                                        <a href="#"><i class="-alt fa fa-2x fa-eye fa-fw"></i></a>
+                                    </td>
+                                    <td>
+                                        <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-rounded" width="60">
+                                    </td>
+                                    <td>
+                                        <h4> <b>Song name</b> </h4>
+                                        <h5> <b>Artist</b> </h5>
+                                        <p> Description </p>
+                                    </td>
+                                    <td>
+                                    	<h6> Rating </h6>
+                                    	<h6> Genre </h6>
+										<a href="/">View song lyrics</a>
+                                    </td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" value="left" type="button">
+                                                <i class="fa fa-fw s fa-play"></i> Play
+											</button>
+                                        </div>
+                                    </td>
+								</tr>
+								-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+			<hr/>
+        </div>
+
+        <!-- LIST END -->
+
+		<!-- FOOTER START -->
+		
+		<footer id="footer">
+			<div class="container">
+				<blockquote class="blockquote blockquote-reverse">
+					<p class="mb-0">
+						Theme music project was made as ontology and data processing showcase at FEUP course "Information Description, Storage and Retrieval".
+					</p>
+					<footer class="blockquote-footer"> <cite title="Nino Cerovec">Nino Cerovec</cite> </footer>
+				</blockquote>
+			
+				<div class="row pull-left align-left text-muted">
+					<span>
+						Credits:
+						<a href="https://developer.musixmatch.com" target="_blank">API by MusixMatch</a> | 
+						<a href="http://www.freepik.com/free-vector/headphones-set_720889.htm" target="_blank">Logo designed by Freepik</a>
+					</span>
+					<br/>
+					<span>
+						Feel free to contact me or <a href="https://github.com/ncerovec/mood-music-project" target="_blank">fork me on GitHub</a> if you would like to contribute to this project.
+					</span>
+					<br/>
+					<span>
+						Very simple and lightweight project.
+						Implemented using only <code>JavaScript (+ jQuery, Ajax)</code>, <code>CSS (+ Bootstrap)</code> & <code>HTML5</code>.
+					</span>					
+				</div>
+				
+				<div class="row pull-right align-right text-muted">
+					<a href="http://www.nino.info">&#169;<script>document.write(new Date().getFullYear())</script> nino.info</a> |
+					<a href="mailto:nino.cerovec@gmail.com?subject=Web%20Contact:%20nino.info">Code & Design by Nino Cerovec</a>					
+				</div>
+			</div>
+		</footer>
+				
+		<!-- FOOTER END -->
+		
+        <!-- MODAL START -->
+
+		<div id="lyrics-modal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Lyrics: </h4>
+					</div>
+
+					<div class="modal-body">
+						<pre>
+							...Sample lyrics text...
+						</pre>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- MODAL END -->
+	</body>
+</html>

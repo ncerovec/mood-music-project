@@ -5,7 +5,7 @@
  */
 function Api()
 {
-	this.apiKey = '27fd8a413c8f5837346998c3a41c1b2d';
+	this.apiKey = musixMatchApiKey;
 	this.songDataset = {available:0, songList:[]};
 };
 

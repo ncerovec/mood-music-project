@@ -1,9 +1,24 @@
+html
+{
+  position: relative;
+  min-height: 100%;
+}
+
+#footer
+{
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 0px 10px 0px;
+  background-color: #f5f5f5;
+}
+
 /* Loader animation */
+
 #loader
 {
     position: absolute;
-    left: 50%;
-    top: 50%;
+	left: 50%;
+    /* top: 50%; */
     z-index: 1;
     width: 150px;
     height: 150px;
